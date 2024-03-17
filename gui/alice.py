@@ -7,7 +7,7 @@ from algorithms import mceliece
 
 HEADER = 64
 PICKLE_HEADER = 4096
-PORT = 5055
+PORT = 5057
 FORMAT = 'utf-8'
 SERVER_IP = "192.168.1.27"
 ADDRESS = (SERVER_IP, PORT)
@@ -39,7 +39,8 @@ def start():
     print("[Alice]: starting...")
     public_key_message = client.recv(PICKLE_HEADER)
     public_key = pickle.loads(public_key_message)
-
+    print(public_key_message)
+    print(public_key)
     while True:
         message = input("Enter message you want to send ")
         key = ""

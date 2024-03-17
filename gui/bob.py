@@ -6,7 +6,7 @@ from algorithms import mceliece, ecdsa
 from algorithms import camellia
 
 HEADER = 64
-PORT = 5055
+PORT = 5057
 IP = socket.gethostbyname(socket.gethostname())
 ADDRESS = (IP, PORT)
 FORMAT = 'utf-8'
@@ -18,7 +18,7 @@ public_key = mceliece_keys.GPrime
 public_key_pickled = pickle.dumps(public_key)
 
 
-def handle_client(connection):
+def handle_client(connection, address):
     print(f"[Alice]: connected")
     connection.send(public_key_pickled)
 
